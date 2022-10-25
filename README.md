@@ -72,7 +72,7 @@ bash craigslistbargain/exp_scripts/identifier/train_uttr_id_history_tom.sh
 ```
 ### Train alpha-Nego
 ```shell
-bash craigslistbargain/craigslistbargain/exp_scripts/rl/train_nego.sh
+bash craigslistbargain/exp_scripts/rl/train_nego.sh
 ```
 
 ### Evaluate result of different model.
