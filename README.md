@@ -1,6 +1,6 @@
 # alpha-Nego
 alpha-Nego: Self-play Deep Reinforcement Learning for Negotiation based on Natural Language
-Implements our alpha$-Nego algorithms.
+Implements our alpha-Nego algorithms.
 A more clear code with proper instruction will be available soon here. 
 
 ----------
