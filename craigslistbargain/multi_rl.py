@@ -90,7 +90,7 @@ if __name__ == '__main__':
     parser.add_argument('--start-port', type=int, default=7000, help='start port address for socket transport')
     parser.add_argument('--use-utterance', action='store_true', default=False, help='use data generator')
 
-    parser.add_argument('--nlg-dir', type=str, default='data/nlg_templates_dict.json',
+    parser.add_argument('--nlg-dir', type=str, default='craigslistbargain/data/nlg_templates_dict.json',
                         help='directory of templates for IR-based NLG')
 
     parser.add_argument('--fix-id', action='store_true', default=False, help='Fix identity')
