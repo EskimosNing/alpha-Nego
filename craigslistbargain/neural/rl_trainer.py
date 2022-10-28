@@ -195,7 +195,7 @@ class RLTrainer(BaseTrainer):
         if policy is not None:
             batch_size = batch.size
             act_intent = batch.act_intent
-            print(act_intent.shape)
+            #print(act_intent.shape)
             # lsub = policy - policy.max(dim=-1).values
             # print('logits_sub: ', lsub)
             # p = lsub.exp()
