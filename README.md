@@ -50,8 +50,8 @@ bash craigslistbargain/exp_scripts/identifier/old/train_sl.sh
 ### Train A2C Agent
 Generate scenarios
 ```shell
-PYTHONPATH=. python ../scripts/chat_to_scenarios.py --chats data/train-luis-post-new.json --scenarios data/train-scenarios.json
-PYTHONPATH=. python ../scripts/chat_to_scenarios.py --chats data/dev-luis-post-new.json --scenarios data/dev-scenarios.json
+PYTHONPATH=. python scripts/chat_to_scenarios.py --chats data/train-luis-post-new.json --scenarios data/train-scenarios.json
+PYTHONPATH=. python scripts/chat_to_scenarios.py --chats data/dev-luis-post-new.json --scenarios data/dev-scenarios.json
 ```
 Train the RL model 
 ```shell
