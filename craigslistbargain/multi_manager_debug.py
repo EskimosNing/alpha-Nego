@@ -910,17 +910,21 @@ class MultiManager():
                         examples = infos[1][0]
                         eval_dict = worker.local_send(['get_eval_dict_sp', (examples, opponent)])[1]
                         result = get_result_dict(eval_dict)[0]           
-
-                        self.writer.add_scalar('Evaluate agent dsac against {} of  reward mean'.format(opponent),result.get('reward'), epoch)
-                        self.writer.add_scalar('Evaluate agent dsac against {} of  reward std'.format(opponent),result.get('reward_std'), epoch)
-                        self.writer.add_scalar('Evaluate agent dsac against {} of  success rate mean'.format(opponent),result.get('success_rate'), epoch)
-                        self.writer.add_scalar('Evaluate agent dsac against {} of  success rate std'.format(opponent),result.get('success_rate_std'), epoch)
-                        self.writer.add_scalar('Evaluate agent dsac against {} of  utility mean'.format(opponent),result.get('utility'), epoch)
-                        self.writer.add_scalar('Evaluate agent dsac against {} of  utility std'.format(opponent),result.get('utility_std'), epoch)
-                        self.writer.add_scalar('Evaluate agent dsac against {} of  length mean'.format(opponent),result.get('length'), epoch)
-                        self.writer.add_scalar('Evaluate agent dsac against {} of  length std'.format(opponent),result.get('length_std'), epoch)
-                        self.writer.add_scalar('Evaluate agent dsac against {} of  fairness mean'.format(opponent),result.get('fairness'), epoch)
-                        self.writer.add_scalar('Evaluate agent dsac against {} of  fairness std'.format(opponent),result.get('fairness_std'), epoch)
+                        if 'reward' in  result:
+                            self.writer.add_scalar('Evaluate agent dsac against {} of  reward mean'.format(opponent),result.get('reward'), epoch)
+                            self.writer.add_scalar('Evaluate agent dsac against {} of  reward std'.format(opponent),result.get('reward_std'), epoch)
+                        if 'success_rate' in  result:
+                            self.writer.add_scalar('Evaluate agent dsac against {} of  success rate mean'.format(opponent),result.get('success_rate'), epoch)
+                            self.writer.add_scalar('Evaluate agent dsac against {} of  success rate std'.format(opponent),result.get('success_rate_std'), epoch)
+                        if 'utility' in  result:
+                            self.writer.add_scalar('Evaluate agent dsac against {} of  utility mean'.format(opponent),result.get('utility'), epoch)
+                            self.writer.add_scalar('Evaluate agent dsac against {} of  utility std'.format(opponent),result.get('utility_std'), epoch)
+                        if 'length' in  result:
+                            self.writer.add_scalar('Evaluate agent dsac against {} of  length mean'.format(opponent),result.get('length'), epoch)
+                            self.writer.add_scalar('Evaluate agent dsac against {} of  length std'.format(opponent),result.get('length_std'), epoch)
+                        if 'fairness' in  result:
+                            self.writer.add_scalar('Evaluate agent dsac against {} of  fairness mean'.format(opponent),result.get('fairness'), epoch)
+                            self.writer.add_scalar('Evaluate agent dsac against {} of  fairness std'.format(opponent),result.get('fairness_std'), epoch)
                         self.writer.add_scalar('Evaluate agent dsac against {} of  score'.format(opponent),self.trainer.trainer.score_table[kind][opponent]['score'][-1], epoch)
                         self.writer.add_scalar('Evaluate agent dsac against {} of  win_rate'.format(opponent),self.trainer.trainer.score_table[kind][opponent]['win_rate'][-1], epoch)
                 self.writer.add_scalar('Evaluate agent dsac avg_score',self.trainer.trainer.get_avg_score(), epoch)
