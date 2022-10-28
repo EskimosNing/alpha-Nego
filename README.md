@@ -54,21 +54,22 @@ PYTHONPATH=. python scripts/chat_to_scenarios.py --chats data/train-luis-post-ne
 PYTHONPATH=. python scripts/chat_to_scenarios.py --chats data/dev-luis-post-new.json --scenarios data/dev-scenarios.json
 ```
 Train the RL model 
+> parameter <use_gpu>: `"--gpuid 0"` for gpu, `""` for cpu.
 ```shell
-bash craigslistbargain/exp_scripts/rl/train_a2c.sh
+bash craigslistbargain/exp_scripts/rl/train_a2c.sh <exp_name> <use_gpu> <seed> <learning_rate> 
 ```
 ### Train ToM model
 Sample data
 ```shell
-bash craigslistbargain/exp_scripts/identifier/sample_data.sh
+bash craigslistbargain/exp_scripts/identifier/sample_data.sh <use_gpu> <seed> 
 ```
 Implicit Model
 ```shell
-bash craigslistbargain/exp_scripts/identifier/train_uttr_history_tom.sh
+bash craigslistbargain/exp_scripts/identifier/train_uttr_history_tom.sh <exp_name> <use_gpu>
 ```
 Explicit Model
 ```shell
-bash craigslistbargain/exp_scripts/identifier/train_uttr_id_history_tom.sh
+bash craigslistbargain/exp_scripts/identifier/train_uttr_id_history_tom.sh <exp_name> <use_gpu>
 ```
 ### Train alpha-Nego
 ```shell
@@ -76,7 +77,8 @@ bash craigslistbargain/exp_scripts/rl/train_nego.sh
 ```
 
 ### Evaluate result of different model.
-
+> For evaluation process, gpu acceleration is unnecessary.
+> 
 Rule Model
 ```shell
 bash craigslistbargain/exp_scripts/rl/eval_rule.sh
